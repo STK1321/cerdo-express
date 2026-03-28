@@ -1,17 +1,226 @@
 ---
+import '../styles/global.css';
+
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '57XXXXXXXXXX';
+const whatsappHref = `https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20cotizar%20cerdo`;
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Cerdo fresco a buen precio para restaurantes, asaderos y carnicerias. Cotiza por WhatsApp y recibe atencion inmediata."
+    />
+    <meta property="og:title" content="Cerdo Express | Cerdo Fresco a Buen Precio" />
+    <meta
+      property="og:description"
+      content="Compra directa, sin complicaciones. Entrega rapida, calidad garantizada y respuesta inmediata."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cerdo Express | Cerdo Fresco a Buen Precio</title>
+  </head>
+  <body>
+    <header class="container-main pt-6 sm:pt-8">
+      <nav class="card-surface flex items-center justify-between px-4 py-3 sm:px-6">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-full border-2 border-brand-gold bg-brand-navy text-lg text-brand-gold">
+            🐷
+          </div>
+          <div>
+            <p class="text-lg font-semibold tracking-wide text-brand-navy">Cerdo Express</p>
+            <p class="text-xs font-medium uppercase tracking-[0.14em] text-brand-charcoal/70">
+              Calidad garantizada
+            </p>
+          </div>
+        </div>
+        <a class="btn-primary hidden sm:inline-flex" href={whatsappHref} target="_blank" rel="noreferrer">
+          Cotizar por WhatsApp
+        </a>
+      </nav>
+    </header>
+
+    <main class="container-main pb-16 pt-10 sm:pt-14">
+      <section class="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+        <div class="space-y-6">
+          <p class="chip">Compra directa, sin complicaciones</p>
+          <h1 class="text-4xl leading-tight sm:text-5xl lg:text-6xl">Cerdo fresco a buen precio para tu negocio</h1>
+          <p class="max-w-xl text-base leading-relaxed text-brand-charcoal/90 sm:text-lg">
+            Entrega rapida, calidad garantizada y atencion inmediata para restaurantes, asaderos,
+            carnicerias y eventos familiares.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="chip">Entrega rapida</span>
+            <span class="chip">Calidad garantizada</span>
+            <span class="chip">Respuesta en minutos</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a class="btn-primary" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar ahora</a>
+            <a class="btn-secondary" href="#formulario">Dejar mis datos</a>
+          </div>
+        </div>
+
+        <aside class="card-surface p-6 sm:p-7">
+          <p class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-red">Necesitas cerdo hoy?</p>
+          <h2 class="mt-3 text-2xl leading-tight sm:text-3xl">Te ayudamos a conseguir cerdo fresco al mejor precio</h2>
+          <ul class="mt-5 space-y-3 text-sm font-medium text-brand-charcoal/90 sm:text-base">
+            <li>🐖 Venta por kilo o unidad</li>
+            <li>🚚 Opciones de entrega coordinada</li>
+            <li>⚡ Respuesta rapida por WhatsApp</li>
+          </ul>
+          <a
+            class="btn-primary mt-6 w-full"
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ir a WhatsApp
+          </a>
+        </aside>
+      </section>
+
+      <section class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <article class="card-surface p-5">
+          <h3 class="text-xl">Para quien es?</h3>
+          <ul class="mt-3 space-y-2 text-sm text-brand-charcoal/90">
+            <li>Restaurantes</li>
+            <li>Asaderos</li>
+            <li>Carnicerias</li>
+            <li>Eventos familiares</li>
+          </ul>
+        </article>
+        <article class="card-surface p-5">
+          <h3 class="text-xl">Por que comprar con nosotros?</h3>
+          <ul class="mt-3 space-y-2 text-sm text-brand-charcoal/90">
+            <li>Proveedores verificados</li>
+            <li>Precios competitivos</li>
+            <li>Entrega coordinada</li>
+            <li>Atencion rapida</li>
+          </ul>
+        </article>
+        <article class="card-surface p-5">
+          <h3 class="text-xl">Atencion inmediata</h3>
+          <p class="mt-3 text-sm leading-relaxed text-brand-charcoal/90">
+            Nuestro objetivo es responderte en menos de 5 minutos y ayudarte a cerrar tu pedido hoy.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-brand-red hover:underline" href={whatsappHref} target="_blank" rel="noreferrer">
+            Escribenos ahora
+          </a>
+        </article>
+        <article class="card-surface p-5">
+          <h3 class="text-xl">Cobertura y confianza</h3>
+          <p class="mt-3 text-sm leading-relaxed text-brand-charcoal/90">
+            Disponible en tu ciudad y alrededores. Trabajamos con proveedores confiables y producto
+            apto para consumo.
+          </p>
+        </article>
+      </section>
+
+      <section id="formulario" class="mt-14 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+        <div class="space-y-4">
+          <p class="chip">Tambien puedes dejarnos tus datos</p>
+          <h2 class="text-3xl leading-tight sm:text-4xl">Compra facil, rapida y segura</h2>
+          <p class="max-w-xl text-base leading-relaxed text-brand-charcoal/90">
+            Completa el formulario y un asesor te contacta rapido para confirmar disponibilidad,
+            precio y entrega.
+          </p>
+          <a class="btn-secondary" href={whatsappHref} target="_blank" rel="noreferrer">Prefiero cotizar por WhatsApp</a>
+        </div>
+
+        <form class="card-surface grid gap-4 p-6 sm:p-7" method="post" action="#" aria-label="Formulario de cotizacion">
+          <div class="grid gap-2">
+            <label for="nombre" class="text-sm font-semibold text-brand-navy">Nombre</label>
+            <input
+              id="nombre"
+              name="nombre"
+              required
+              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div class="grid gap-2">
+            <label for="telefono" class="text-sm font-semibold text-brand-navy">Telefono</label>
+            <input
+              id="telefono"
+              name="telefono"
+              required
+              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
+              placeholder="Tu numero de contacto"
+            />
+          </div>
+
+          <div class="grid gap-2 sm:grid-cols-2">
+            <div class="grid gap-2">
+              <label for="cantidad" class="text-sm font-semibold text-brand-navy">Cantidad</label>
+              <input
+                id="cantidad"
+                name="cantidad"
+                required
+                class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
+                placeholder="Ej: 20 kg"
+              />
+            </div>
+            <div class="grid gap-2">
+              <label for="ciudad" class="text-sm font-semibold text-brand-navy">Ciudad</label>
+              <input
+                id="ciudad"
+                name="ciudad"
+                required
+                class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
+                placeholder="Tu ciudad"
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-2">
+            <label for="fecha" class="text-sm font-semibold text-brand-navy">Para cuando lo necesitas?</label>
+            <input
+              id="fecha"
+              name="fecha"
+              required
+              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
+              placeholder="Hoy, manana o fecha estimada"
+            />
+          </div>
+
+          <button class="btn-primary mt-2 w-full" type="submit">Enviar datos de cotizacion</button>
+          <p class="text-center text-xs text-brand-charcoal/70">
+            Te contactamos rapido para confirmar disponibilidad y precio final.
+          </p>
+        </form>
+      </section>
+
+      <section class="mt-14">
+        <div class="card-surface border-l-4 border-l-brand-gold p-6 sm:p-8">
+          <h2 class="text-3xl">No pierdas tiempo buscando proveedor</h2>
+          <p class="mt-3 max-w-3xl text-base leading-relaxed text-brand-charcoal/90">
+            Nosotros te conectamos con el mejor proveedor para que mantengas tu operacion activa con
+            calidad y cumplimiento.
+          </p>
+          <a class="btn-primary mt-6" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar mi pedido</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-brand-navy/10 bg-brand-navy py-7 text-brand-cream">
+      <div class="container-main flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} Cerdo Express. Suministro confiable para tu negocio.</p>
+        <a class="font-semibold text-brand-gold hover:text-white" href={whatsappHref} target="_blank" rel="noreferrer">
+          WhatsApp directo
+        </a>
+      </div>
+    </footer>
+  </body>
 </html>
