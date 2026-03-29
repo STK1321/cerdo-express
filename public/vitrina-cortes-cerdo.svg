@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Cortes de cerdo</title>
+  <desc id="desc">Tarjeta visual para cortes de cerdo</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2d34"/>
+      <stop offset="100%" stop-color="#121419"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <g transform="translate(280 190)">
+    <rect x="0" y="0" width="640" height="420" rx="30" fill="#4a4d55"/>
+    <rect x="28" y="28" width="584" height="364" rx="18" fill="#2a2d34"/>
+    <rect x="70" y="70" width="150" height="120" rx="20" fill="#f1b3b3"/>
+    <rect x="250" y="70" width="130" height="170" rx="20" fill="#d97e7e"/>
+    <rect x="410" y="70" width="160" height="110" rx="20" fill="#ef9f9f"/>
+    <rect x="90" y="220" width="180" height="130" rx="22" fill="#e69393"/>
+    <rect x="300" y="260" width="220" height="90" rx="20" fill="#f4bcbc"/>
+  </g>
+  <text x="80" y="120" font-family="Poppins, Arial, sans-serif" font-size="42" fill="#f8f4e3" letter-spacing="3">PRODUCTO</text>
+  <text x="80" y="190" font-family="Playfair Display, Georgia, serif" font-size="78" fill="#ffffff">Cortes de cerdo</text>
+</svg>

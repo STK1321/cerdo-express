@@ -1,226 +1,297 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? '57XXXXXXXXXX';
 const whatsappHref = `https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20cotizar%20cerdo`;
+const siteUrl = (import.meta.env.PUBLIC_SITE_URL ?? 'https://cerdoexpress.co').replace(/\/$/, '');
+const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
+const ogImageUrl = `${siteUrl}/og-image.svg`;
 
+const seoTitle = 'Cerdo Express | Venta de cerdo por kilo, canal y pie';
+const seoDescription =
+  'Compra cerdo por kilo, en canal o marrano en pie para restaurantes, asaderos y carnicerías. Cotiza por WhatsApp con respuesta rápida y entrega coordinada.';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Cerdo Express',
+  url: siteUrl,
+  logo: `${siteUrl}/logo-cerdo-express.png`,
+  description: seoDescription,
+  areaServed: 'CO',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: `+${whatsappNumber}`,
+      availableLanguage: ['es'],
+    },
+  ],
+};
 ---
 
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Cerdo fresco a buen precio para restaurantes, asaderos y carnicerias. Cotiza por WhatsApp y recibe atencion inmediata."
-    />
-    <meta property="og:title" content="Cerdo Express | Cerdo Fresco a Buen Precio" />
-    <meta
-      property="og:description"
-      content="Compra directa, sin complicaciones. Entrega rapida, calidad garantizada y respuesta inmediata."
-    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#19060a" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content={seoDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es-CO" href={canonicalUrl} />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Cerdo Express - Distribución premium de cerdo" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Cerdo Express" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Cerdo Express | Cerdo Fresco a Buen Precio</title>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <ClientRouter />
+    <title>{seoTitle}</title>
   </head>
   <body>
-    <header class="container-main pt-6 sm:pt-8">
-      <nav class="card-surface flex items-center justify-between px-4 py-3 sm:px-6">
-        <div class="flex items-center gap-3">
-          <div class="grid h-11 w-11 place-items-center rounded-full border-2 border-brand-gold bg-brand-navy text-lg text-brand-gold">
-            🐷
-          </div>
+    <header class="site-header">
+      <nav class="container-shell header-row" aria-label="Navegación principal">
+        <a href="#inicio" class="brand">
+          <img src="/logo-cerdo-express.png" alt="Cerdo Express" loading="eager" decoding="async" />
           <div>
-            <p class="text-lg font-semibold tracking-wide text-brand-navy">Cerdo Express</p>
-            <p class="text-xs font-medium uppercase tracking-[0.14em] text-brand-charcoal/70">
-              Calidad garantizada
-            </p>
+            <p class="brand-title">Cerdo Express</p>
+            <p class="brand-sub">Distribución de cerdo</p>
           </div>
-        </div>
-        <a class="btn-primary hidden sm:inline-flex" href={whatsappHref} target="_blank" rel="noreferrer">
-          Cotizar por WhatsApp
         </a>
+        <a class="cta-main hidden sm:inline-flex" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar ahora</a>
       </nav>
     </header>
 
-    <main class="container-main pb-16 pt-10 sm:pt-14">
-      <section class="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
-        <div class="space-y-6">
-          <p class="chip">Compra directa, sin complicaciones</p>
-          <h1 class="text-4xl leading-tight sm:text-5xl lg:text-6xl">Cerdo fresco a buen precio para tu negocio</h1>
-          <p class="max-w-xl text-base leading-relaxed text-brand-charcoal/90 sm:text-lg">
-            Entrega rapida, calidad garantizada y atencion inmediata para restaurantes, asaderos,
-            carnicerias y eventos familiares.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <span class="chip">Entrega rapida</span>
-            <span class="chip">Calidad garantizada</span>
-            <span class="chip">Respuesta en minutos</span>
-          </div>
-          <div class="flex flex-wrap gap-4">
-            <a class="btn-primary" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar ahora</a>
-            <a class="btn-secondary" href="#formulario">Dejar mis datos</a>
+    <main id="inicio" class="page-wrap">
+      <section class="hero-scene reveal" aria-labelledby="hero-title">
+        <div class="container-shell">
+          <p class="scene-kicker">Compra por lo que ves</p>
+          <h1 id="hero-title" class="scene-title">MARRANO EN PIE. CERDO EN CANAL. CORTES.</h1>
+          <p class="scene-copy">Vitrina directa para negocio. Toca, cotiza y cierra por WhatsApp.</p>
+
+          <div class="phone-lane">
+            <article class="phone-card" aria-labelledby="producto-pie">
+              <div class="phone-screen">
+                <img src="/marrano_en_pie.png" alt="Marrano en pie" loading="lazy" decoding="async" />
+                <div class="screen-overlay">
+                  <p class="tag-chip">Producto 01</p>
+                  <h2 id="producto-pie">Marrano en pie</h2>
+                  <ul>
+                    <li>Lote por volumen</li>
+                    <li>Negociación directa</li>
+                    <li>Despacho coordinado</li>
+                  </ul>
+                  <a class="cta-main" href={whatsappHref} target="_blank" rel="noreferrer">Quiero este producto</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="phone-card" aria-labelledby="producto-canal">
+              <div class="phone-screen">
+                <img src="/marrano_en_canal.png" alt="Cerdo en canal" loading="lazy" decoding="async" />
+                <div class="screen-overlay">
+                  <p class="tag-chip">Producto 02</p>
+                  <h2 id="producto-canal">Cerdo en canal</h2>
+                  <ul>
+                    <li>Canal completa</li>
+                    <li>Media o cuarto canal</li>
+                    <li>Entrega por ruta</li>
+                  </ul>
+                  <a class="cta-main" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar canal</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="phone-card" aria-labelledby="producto-cortes">
+              <div class="phone-screen">
+                <img src="/cortes_de_cerdo.png" alt="Cortes de cerdo" loading="lazy" decoding="async" />
+                <div class="screen-overlay">
+                  <p class="tag-chip">Producto 03</p>
+                  <h2 id="producto-cortes">Cortes de cerdo</h2>
+                  <ol>
+                    <li>Lomo</li>
+                    <li>Costilla</li>
+                    <li>Panceta</li>
+                    <li>Otros cortes</li>
+                  </ol>
+                  <a class="cta-main" href={whatsappHref} target="_blank" rel="noreferrer">Ver cortes y precio</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
+      </section>
 
-        <aside class="card-surface p-6 sm:p-7">
-          <p class="text-xs font-semibold uppercase tracking-[0.15em] text-brand-red">Necesitas cerdo hoy?</p>
-          <h2 class="mt-3 text-2xl leading-tight sm:text-3xl">Te ayudamos a conseguir cerdo fresco al mejor precio</h2>
-          <ul class="mt-5 space-y-3 text-sm font-medium text-brand-charcoal/90 sm:text-base">
-            <li>🐖 Venta por kilo o unidad</li>
-            <li>🚚 Opciones de entrega coordinada</li>
-            <li>⚡ Respuesta rapida por WhatsApp</li>
-          </ul>
-          <a
-            class="btn-primary mt-6 w-full"
-            href={whatsappHref}
+      <section class="benefit-scene reveal" id="beneficios" aria-labelledby="beneficios-title">
+        <div class="container-shell benefit-grid">
+          <article class="benefit-card">
+            <h2 id="beneficios-title">Beneficios de compra</h2>
+            <ol>
+              <li><strong>Respuesta rápida:</strong> objetivo de atención en minutos.</li>
+              <li><strong>Producto real:</strong> pie, canal o corte según pedido.</li>
+              <li><strong>Coordinación clara:</strong> ciudad, horario y punto de entrega.</li>
+              <li><strong>Canal único:</strong> todo por WhatsApp para cerrar más rápido.</li>
+            </ol>
+            <a class="cta-main" href={whatsappHref} target="_blank" rel="noreferrer">Quiero cotizar ya</a>
+          </article>
+
+          <form
+            id="cotizacion-form"
+            data-whatsapp={whatsappNumber}
+            class="quick-form"
+            method="post"
+            action={whatsappHref}
             target="_blank"
-            rel="noreferrer"
+            aria-label="Formulario rápido"
           >
-            Ir a WhatsApp
-          </a>
-        </aside>
-      </section>
-
-      <section class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <article class="card-surface p-5">
-          <h3 class="text-xl">Para quien es?</h3>
-          <ul class="mt-3 space-y-2 text-sm text-brand-charcoal/90">
-            <li>Restaurantes</li>
-            <li>Asaderos</li>
-            <li>Carnicerias</li>
-            <li>Eventos familiares</li>
-          </ul>
-        </article>
-        <article class="card-surface p-5">
-          <h3 class="text-xl">Por que comprar con nosotros?</h3>
-          <ul class="mt-3 space-y-2 text-sm text-brand-charcoal/90">
-            <li>Proveedores verificados</li>
-            <li>Precios competitivos</li>
-            <li>Entrega coordinada</li>
-            <li>Atencion rapida</li>
-          </ul>
-        </article>
-        <article class="card-surface p-5">
-          <h3 class="text-xl">Atencion inmediata</h3>
-          <p class="mt-3 text-sm leading-relaxed text-brand-charcoal/90">
-            Nuestro objetivo es responderte en menos de 5 minutos y ayudarte a cerrar tu pedido hoy.
-          </p>
-          <a class="mt-4 inline-flex text-sm font-semibold text-brand-red hover:underline" href={whatsappHref} target="_blank" rel="noreferrer">
-            Escribenos ahora
-          </a>
-        </article>
-        <article class="card-surface p-5">
-          <h3 class="text-xl">Cobertura y confianza</h3>
-          <p class="mt-3 text-sm leading-relaxed text-brand-charcoal/90">
-            Disponible en tu ciudad y alrededores. Trabajamos con proveedores confiables y producto
-            apto para consumo.
-          </p>
-        </article>
-      </section>
-
-      <section id="formulario" class="mt-14 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-        <div class="space-y-4">
-          <p class="chip">Tambien puedes dejarnos tus datos</p>
-          <h2 class="text-3xl leading-tight sm:text-4xl">Compra facil, rapida y segura</h2>
-          <p class="max-w-xl text-base leading-relaxed text-brand-charcoal/90">
-            Completa el formulario y un asesor te contacta rapido para confirmar disponibilidad,
-            precio y entrega.
-          </p>
-          <a class="btn-secondary" href={whatsappHref} target="_blank" rel="noreferrer">Prefiero cotizar por WhatsApp</a>
+            <p class="form-title">Cotización exprés</p>
+            <label for="nombre" class="field-label">Nombre</label>
+            <input id="nombre" name="nombre" required class="input-control" placeholder="Nombre" />
+            <label for="telefono" class="field-label">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" required class="input-control" placeholder="Teléfono" />
+            <div class="input-split">
+              <div>
+                <label for="cantidad" class="field-label">Cantidad</label>
+                <input id="cantidad" name="cantidad" required class="input-control" placeholder="Cantidad" />
+              </div>
+              <div>
+                <label for="ciudad" class="field-label">Ciudad</label>
+                <input id="ciudad" name="ciudad" required class="input-control" placeholder="Ciudad" />
+              </div>
+            </div>
+            <label for="fecha" class="field-label">¿Para cuándo lo necesitas?</label>
+            <input id="fecha" name="fecha" required class="input-control" placeholder="Para cuándo lo necesitas" />
+            <button class="cta-main w-full" type="submit">Enviar y abrir WhatsApp</button>
+          </form>
         </div>
-
-        <form class="card-surface grid gap-4 p-6 sm:p-7" method="post" action="#" aria-label="Formulario de cotizacion">
-          <div class="grid gap-2">
-            <label for="nombre" class="text-sm font-semibold text-brand-navy">Nombre</label>
-            <input
-              id="nombre"
-              name="nombre"
-              required
-              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
-              placeholder="Tu nombre"
-            />
-          </div>
-
-          <div class="grid gap-2">
-            <label for="telefono" class="text-sm font-semibold text-brand-navy">Telefono</label>
-            <input
-              id="telefono"
-              name="telefono"
-              required
-              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
-              placeholder="Tu numero de contacto"
-            />
-          </div>
-
-          <div class="grid gap-2 sm:grid-cols-2">
-            <div class="grid gap-2">
-              <label for="cantidad" class="text-sm font-semibold text-brand-navy">Cantidad</label>
-              <input
-                id="cantidad"
-                name="cantidad"
-                required
-                class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
-                placeholder="Ej: 20 kg"
-              />
-            </div>
-            <div class="grid gap-2">
-              <label for="ciudad" class="text-sm font-semibold text-brand-navy">Ciudad</label>
-              <input
-                id="ciudad"
-                name="ciudad"
-                required
-                class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
-                placeholder="Tu ciudad"
-              />
-            </div>
-          </div>
-
-          <div class="grid gap-2">
-            <label for="fecha" class="text-sm font-semibold text-brand-navy">Para cuando lo necesitas?</label>
-            <input
-              id="fecha"
-              name="fecha"
-              required
-              class="w-full rounded-xl border border-brand-navy/20 bg-white px-4 py-3 text-sm text-brand-charcoal outline-none ring-brand-red transition focus:ring-2"
-              placeholder="Hoy, manana o fecha estimada"
-            />
-          </div>
-
-          <button class="btn-primary mt-2 w-full" type="submit">Enviar datos de cotizacion</button>
-          <p class="text-center text-xs text-brand-charcoal/70">
-            Te contactamos rapido para confirmar disponibilidad y precio final.
-          </p>
-        </form>
       </section>
 
-      <section class="mt-14">
-        <div class="card-surface border-l-4 border-l-brand-gold p-6 sm:p-8">
-          <h2 class="text-3xl">No pierdas tiempo buscando proveedor</h2>
-          <p class="mt-3 max-w-3xl text-base leading-relaxed text-brand-charcoal/90">
-            Nosotros te conectamos con el mejor proveedor para que mantengas tu operacion activa con
-            calidad y cumplimiento.
-          </p>
-          <a class="btn-primary mt-6" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar mi pedido</a>
+      <section class="proof-scene reveal" id="confianza">
+        <div class="container-shell">
+          <div class="proof-head">
+            <p class="scene-kicker">Confianza que se ve en la operación</p>
+            <h2>Negocios que ya compran con Cerdo Express</h2>
+            <p>
+              Restaurantes, asaderos y carnicerías usan este canal para comprar más rápido y con mejor
+              control de entrega.
+            </p>
+          </div>
+
+          <div class="proof-grid">
+            <article class="proof-card">
+              <p class="proof-label">Caso comercial</p>
+              <h3>Asadero de alto flujo</h3>
+              <p>
+                "Necesitábamos respuesta rápida en horas pico. Con Cerdo Express tenemos cotización y
+                coordinación en el mismo canal."
+              </p>
+            </article>
+
+            <article class="proof-card">
+              <p class="proof-label">Caso comercial</p>
+              <h3>Restaurante de menú ejecutivo</h3>
+              <p>
+                "Nos funciona porque el proceso es claro: pedimos, confirmamos y recibimos en la ventana
+                acordada."
+              </p>
+            </article>
+
+            <article class="proof-card">
+              <p class="proof-label">Caso comercial</p>
+              <h3>Carnicería de barrio</h3>
+              <p>
+                "La ventaja es la continuidad. Podemos cotizar por lote y ajustar según la demanda de la
+                semana."
+              </p>
+            </article>
+          </div>
+
+          <div class="proof-segments">
+            <span>Restaurantes</span>
+            <span>Asaderos</span>
+            <span>Carnicerías</span>
+            <span>Eventos</span>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-brand-navy/10 bg-brand-navy py-7 text-brand-cream">
-      <div class="container-main flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Cerdo Express. Suministro confiable para tu negocio.</p>
-        <a class="font-semibold text-brand-gold hover:text-white" href={whatsappHref} target="_blank" rel="noreferrer">
-          WhatsApp directo
-        </a>
+    <footer class="site-footer">
+      <div class="container-shell footer-row">
+        <p>© {new Date().getFullYear()} Cerdo Express</p>
+        <a href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp directo</a>
       </div>
     </footer>
+
+    <a class="sticky-mobile" href={whatsappHref} target="_blank" rel="noreferrer">Cotizar por WhatsApp</a>
+
+    <script is:inline>
+      const form = document.getElementById('cotizacion-form');
+      const revealItems = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      }
+
+      if (form) {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const data = new FormData(form);
+          const nombre = (data.get('nombre') || '').toString().trim();
+          const telefono = (data.get('telefono') || '').toString().trim();
+          const cantidad = (data.get('cantidad') || '').toString().trim();
+          const ciudad = (data.get('ciudad') || '').toString().trim();
+          const fecha = (data.get('fecha') || '').toString().trim();
+
+          const message = [
+            'Hola, quiero cotizar cerdo.',
+            `Nombre: ${nombre}`,
+            `Teléfono: ${telefono}`,
+            `Cantidad: ${cantidad}`,
+            `Ciudad: ${ciudad}`,
+            `Para cuándo: ${fecha}`,
+          ].join('\n');
+
+          const waNumber = form.dataset.whatsapp || '57XXXXXXXXXX';
+          const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+          window.open(url, '_blank', 'noopener,noreferrer');
+        });
+      }
+    </script>
   </body>
 </html>

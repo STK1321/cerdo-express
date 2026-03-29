@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Marrano en pie</title>
+  <desc id="desc">Tarjeta visual para producto marrano en pie</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f3f61"/>
+      <stop offset="100%" stop-color="#0f2134"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+  <ellipse cx="600" cy="620" rx="320" ry="90" fill="#0a1522" opacity="0.5"/>
+  <g fill="#f0c6c6">
+    <ellipse cx="590" cy="430" rx="240" ry="150"/>
+    <circle cx="830" cy="410" r="70"/>
+    <polygon points="860,335 905,280 890,350"/>
+    <rect x="455" y="540" width="60" height="120" rx="24"/>
+    <rect x="565" y="550" width="60" height="120" rx="24"/>
+    <rect x="690" y="545" width="60" height="120" rx="24"/>
+    <rect x="790" y="535" width="60" height="120" rx="24"/>
+  </g>
+  <circle cx="850" cy="400" r="10" fill="#1a2430"/>
+  <text x="80" y="120" font-family="Poppins, Arial, sans-serif" font-size="42" fill="#f8f4e3" letter-spacing="3">PRODUCTO</text>
+  <text x="80" y="190" font-family="Playfair Display, Georgia, serif" font-size="78" fill="#ffffff">Marrano en pie</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23090f"/>
+      <stop offset="1" stop-color="#130408"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 110) rotate(141.308) scale(390 260)">
+      <stop stop-color="#F0D979" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#F0D979" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 72) rotate(119.745) scale(340 220)">
+      <stop stop-color="#D73A4B" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#D73A4B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glowA)"/>
+  <rect width="1200" height="630" fill="url(#glowB)"/>
+
+  <rect x="72" y="72" width="1056" height="486" rx="30" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.16"/>
+
+  <circle cx="168" cy="166" r="54" fill="#FFFFFF" fill-opacity="0.96"/>
+  <circle cx="168" cy="166" r="49" fill="#130408"/>
+  <text x="168" y="177" text-anchor="middle" font-family="Oswald, Arial, sans-serif" font-size="28" fill="#F0D979">CE</text>
+
+  <text x="250" y="154" font-family="Oswald, Arial, sans-serif" font-size="66" font-weight="700" fill="#F7F5F2">CERDO EXPRESS</text>
+  <text x="250" y="208" font-family="Poppins, Arial, sans-serif" font-size="28" fill="#D8D6D3">Distribucion premium de cerdo para negocio</text>
+
+  <text x="96" y="334" font-family="Oswald, Arial, sans-serif" font-size="72" fill="#F7F5F2">MARRANO EN PIE · CANAL · CORTES</text>
+
+  <g>
+    <rect x="96" y="394" width="306" height="114" rx="20" fill="#FFFFFF" fill-opacity="0.07" stroke="#FFFFFF" stroke-opacity="0.22"/>
+    <text x="124" y="438" font-family="Poppins, Arial, sans-serif" font-size="20" fill="#F0D979">Respuesta rapida</text>
+    <text x="124" y="470" font-family="Poppins, Arial, sans-serif" font-size="16" fill="#D8D6D3">Cotizacion directa por WhatsApp</text>
+  </g>
+
+  <g>
+    <rect x="447" y="394" width="306" height="114" rx="20" fill="#FFFFFF" fill-opacity="0.07" stroke="#FFFFFF" stroke-opacity="0.22"/>
+    <text x="475" y="438" font-family="Poppins, Arial, sans-serif" font-size="20" fill="#F0D979">Producto real</text>
+    <text x="475" y="470" font-family="Poppins, Arial, sans-serif" font-size="16" fill="#D8D6D3">Pie, canal y cortes disponibles</text>
+  </g>
+
+  <g>
+    <rect x="798" y="394" width="306" height="114" rx="20" fill="#FFFFFF" fill-opacity="0.07" stroke="#FFFFFF" stroke-opacity="0.22"/>
+    <text x="826" y="438" font-family="Poppins, Arial, sans-serif" font-size="20" fill="#F0D979">Entrega coordinada</text>
+    <text x="826" y="470" font-family="Poppins, Arial, sans-serif" font-size="16" fill="#D8D6D3">Ciudad, fecha y punto acordado</text>
+  </g>
+</svg>
